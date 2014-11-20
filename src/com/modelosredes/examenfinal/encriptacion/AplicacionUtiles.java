@@ -77,7 +77,7 @@ public class AplicacionUtiles {
 	
 	
 	
-	/**
+	/****
 	 * Algoritmo MD5
 	 * 
 	 * @param clear Cadena a convertir a MD5
@@ -106,7 +106,7 @@ public class AplicacionUtiles {
 		return "";
 	}
 
-	/**
+	/****
 	 * Encuentra el numero primo proximo mayor o igual al numero dado (2147483124)
 	 */
 	public static long primo(long num) {

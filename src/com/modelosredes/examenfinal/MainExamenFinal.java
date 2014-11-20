@@ -4,7 +4,7 @@ import com.modelosredes.examenfinal.encriptacion.AplicacionUtiles;
 
 public class MainExamenFinal {
 	/**
-	 * MAIN
+	 * Clase de Pruebas MAIN
 	 */
 	public static void main(String[] args) {
 		String strConvetir = "Jordy Joaquin Cuan Robledo";
@@ -16,6 +16,6 @@ public class MainExamenFinal {
 		
 		System.out.println("Convertida a MD5: " + AplicacionUtiles.md5(strConvetir));
 		
-		System.out.println("Mensaje Aleatorio:\n" + AplicacionUtiles.getRandomString(0));
+		System.out.println("Mensaje Aleatorio:\n" + AplicacionUtiles.getRandomString(1));
 	}
 }
