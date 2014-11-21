@@ -12,13 +12,9 @@ import org.apache.commons.codec.binary.Base64;
 /**
  * Clase con utilidades sobre la encriptación
  * 
- * Es el algoritmo que reemplazo a DES. Creado por Joan Daemen y 
- * Vincent Rijmen. Es un cifrado por bloque de 128-bit con claves 
- * de longitud 128, 192 o 256 bits.
- * 
  * @author jordycuan
  */
-public class AplicacionUtiles {
+public class EncriptationUtiles {
 	
 	/**
 	 * Definimos un array de Keys que usará nuestro algoritmo de encriptación
@@ -27,12 +23,12 @@ public class AplicacionUtiles {
 			0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x4b, 0x65, 0x79 };
 
 	/**
-	 * Método de encriptación de una String
+	 * Método de encriptación de una String utilizando AES
 	 * 
 	 * @param strToEncrypt
 	 * @return String encriptada del texto proporcionado
 	 */
-	public static String encrypt(String strToEncrypt) {
+	public static String AES_encrypt(String strToEncrypt) {
 		try {
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
 			final SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
@@ -48,7 +44,7 @@ public class AplicacionUtiles {
 
 	
 	/**
-	 * Método de desencriptación de una String
+	 * Método de desencriptación de una String utilizando AES
 	 * 
 	 * NOTA: Este método desencripta strings que hayan sido encriptadas con un
 	 * algoritmo de 'AES'
@@ -56,7 +52,7 @@ public class AplicacionUtiles {
 	 * @param strToDecrypt
 	 * @return String desencriptada del texto proporcionado
 	 */
-	public static String decrypt(String strToDecrypt) {
+	public static String AES_decrypt(String strToDecrypt) {
 		try {
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
 			final SecretKeySpec secretKey = new SecretKeySpec(key, "AES");

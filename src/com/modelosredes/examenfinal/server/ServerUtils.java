@@ -1,9 +1,17 @@
-package com.modelosredes.examenfinal;
+package com.modelosredes.examenfinal.server;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.modelosredes.examenfinal.AplicationUtils;
+
+
+/**
+ * Clase con utilidades sobre el SERVER
+ * 
+ * @author jordycuan
+ */
 public class ServerUtils {
 
 	/**
@@ -40,9 +48,9 @@ public class ServerUtils {
 	/**
 	 * Lista donde se guardará la llave de Fibonacci
 	 */
-	private static List<Integer> KEY_Fibonacci;
+	private static List<Integer> KEY_Fibonacci = new ArrayList<Integer>();
 
-	private static final int PASSWORD_LENGHT_MAXIMO = 18;
+	public static final int PASSWORD_LENGHT_MAXIMO = 18;
 
 	/**
 	 * Generación de la LLave de Fibonacci
@@ -83,9 +91,11 @@ public class ServerUtils {
 		double y = (1 + Math.sqrt(5)) / 2.0;
 		double z = Math.pow(y, i) * (1.0 / Math.sqrt(5));
 
-		/** TODO 
-		 * Comentar esta linea. Unicamente fines de Testing.*/
-		System.out.println("#" + i + " - " + z + " - " + Math.round(z));
+		/** DEBUG */
+		if (AplicationUtils.DEBUG) {
+			System.out.println("#" + i + " - " + z + " - " + Math.round(z));
+		}
+		
 
 		return (int) Math.round(z);
 	}
@@ -97,7 +107,7 @@ public class ServerUtils {
 	 * @return int[] = 1,1,2,3,5,8,13 ... fib(n)
 	 * @throws LlaveDeFobinacciNoEstablecidaException
 	 */
-	public static Integer[] getKeyFibonacci()
+	public static List<Integer> getKeyFibonacci()
 			throws LlaveDeFobinacciNoEstablecidaException {
 		if (KEY_Fibonacci.size() == 0) {
 			/**
@@ -112,6 +122,10 @@ public class ServerUtils {
 							+ "Debes settear la llave primero");
 		}
 
+		
+		
+		
+		/*
 		// FUCK THAT!!! >_<
 		// http://stackoverflow.com/questions/9572795/convert-list-to-array-in-java
 		Integer[] array = new Integer[KEY_Fibonacci.size()];
@@ -120,6 +134,11 @@ public class ServerUtils {
 		}
 
 		return array;
+		*/
+		
+		
+		// Mejor usemos una lista dinámica. Usemos tipos no primitivos
+		return KEY_Fibonacci;
 	}
 
 	/**
@@ -127,7 +146,7 @@ public class ServerUtils {
 	 * 
 	 * @author jordycuan
 	 */
-	static class LlaveDeFobinacciNoEstablecidaException extends Exception {
+	public static class LlaveDeFobinacciNoEstablecidaException extends Exception {
 		public LlaveDeFobinacciNoEstablecidaException() {
 			super();
 		}
