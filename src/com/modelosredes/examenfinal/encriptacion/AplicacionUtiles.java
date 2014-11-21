@@ -20,6 +20,18 @@ import org.apache.commons.codec.binary.Base64;
  * @author jordycuan
  */
 public class AplicacionUtiles {
+	
+	
+	/**
+	 * ENUM - Empleado para definir las acciones del servidor
+	 */
+	public enum ACCION_SERVIDOR { 
+		ALTA_USER , 
+		INICIAR_SESION , 
+		ENVIAR_MENSAJE 
+	};	
+	
+	
 
 	/**
 	 * Definimos un array de Keys que usará nuestro algoritmo de encriptación
