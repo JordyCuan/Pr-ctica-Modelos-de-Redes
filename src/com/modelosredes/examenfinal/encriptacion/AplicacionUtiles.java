@@ -2,7 +2,6 @@ package com.modelosredes.examenfinal.encriptacion;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -21,18 +20,6 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class AplicacionUtiles {
 	
-	
-	/**
-	 * ENUM - Empleado para definir las acciones del servidor
-	 */
-	public enum ACCION_SERVIDOR { 
-		ALTA_USER , 
-		INICIAR_SESION , 
-		ENVIAR_MENSAJE 
-	};	
-	
-	
-
 	/**
 	 * Definimos un array de Keys que usará nuestro algoritmo de encriptación
 	 */
@@ -86,9 +73,6 @@ public class AplicacionUtiles {
 	
 	
 	
-	
-	
-	
 	/****
 	 * Algoritmo MD5
 	 * 
@@ -118,6 +102,8 @@ public class AplicacionUtiles {
 		return "";
 	}
 
+	
+	
 	/****
 	 * Encuentra el numero primo proximo mayor o igual al numero dado (2147483124)
 	 */
@@ -136,34 +122,5 @@ public class AplicacionUtiles {
 				return num;
 			num++;
 		}
-	}
-	
-	
-	
-	
-	
-	
-	/**
-	 * Longitud del mensaje aleatorio solicitada por el profesor
-	 */
-	public static final int LONGITUD_MA_4096 = 4096;
-	
-	
-	/**
-	 * Generación de Mensaje Aleatorio
-	 */
-	public static String getRandomString(int length) { 
-		
-		//Comentar esta linea si se quiere usar otra longitud
-		length = LONGITUD_MA_4096;
-		
-	    StringBuffer buffer = new StringBuffer("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); 
-	    StringBuffer sb = new StringBuffer(); 
-	    Random r = new Random(); 
-	    int range = buffer.length(); 
-	    for (int i = 0; i < length; i ++) { 
-	        sb.append(buffer.charAt(r.nextInt(range))); 
-	    } 
-	    return sb.toString(); 
 	}
 }
